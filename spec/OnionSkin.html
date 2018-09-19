@@ -1,0 +1,82 @@
+<article class="markdown-body entry-content" itemprop="text"><h1><a id="user-content-tsdoc" class="anchor" aria-hidden="true" href="#tsdoc"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>TSDoc</h1>
+<blockquote>
+<p>A doc comment standard for TypeScript</p>
+</blockquote>
+<h3><a id="user-content-what-is-tsdoc" class="anchor" aria-hidden="true" href="#what-is-tsdoc"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>What is TSDoc?</h3>
+<p><strong>TSDoc</strong> is a proposal to standardize the doc comments used in <a href="http://www.typescriptlang.org/" rel="nofollow">TypeScript</a> source files.  It allows different tools to extract content from comments without getting confused by each other's syntax.   The <strong>TSDoc</strong> notation looks pretty familiar:</p>
+<div class="highlight highlight-source-ts"><pre><span class="pl-k">export</span> <span class="pl-k">class</span> <span class="pl-en">Statistics</span> {
+  <span class="pl-c"><span class="pl-c">/**</span></span>
+<span class="pl-c">   * Returns the average of two numbers.</span>
+<span class="pl-c">   *</span>
+<span class="pl-c">   * @remarks</span>
+<span class="pl-c">   * This method is part of the <span class="pl-en">{<span class="pl-k">@link</span> <span class="pl-smi">core-library/Statistics</span> | Statistics subsystem}</span>.</span>
+<span class="pl-c">   *</span>
+<span class="pl-c">   * <span class="pl-k">@param</span> <span class="pl-smi">x</span> - The first input number</span>
+<span class="pl-c">   * <span class="pl-k">@param</span> <span class="pl-smi">y</span> - The second input number</span>
+<span class="pl-c">   * <span class="pl-k">@returns</span> The arithmetic mean of `x` and `y`</span>
+<span class="pl-c">   *</span>
+<span class="pl-c">   * <span class="pl-k">@beta</span></span>
+<span class="pl-c">   <span class="pl-c">*/</span></span>
+  <span class="pl-k">public</span> <span class="pl-k">static</span> getAverage(<span class="pl-v">x</span><span class="pl-k">:</span> <span class="pl-c1">number</span>, <span class="pl-v">y</span><span class="pl-k">:</span> <span class="pl-c1">number</span>)<span class="pl-k">:</span> <span class="pl-c1">number</span> {
+    <span class="pl-k">return</span> (<span class="pl-smi">x</span> <span class="pl-k">+</span> <span class="pl-smi">y</span>) <span class="pl-k">/</span> <span class="pl-c1">2.0</span>;
+  }
+}</pre></div>
+<p>We are developing a library package <a href="https://www.npmjs.com/package/@microsoft/tsdoc" rel="nofollow">@microsoft/tsdoc</a> that provides an open source reference implementation of a parser.  Using this library is an easy way to ensure that your tool is 100% compatible with the standard.</p>
+<h3><a id="user-content-why-do-we-need-tsdoc" class="anchor" aria-hidden="true" href="#why-do-we-need-tsdoc"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Why do we need TSDoc?</h3>
+<p>This scenario originally arose from projects at Microsoft that are processed by multiple tools:</p>
+<ul>
+<li><a href="https://code.visualstudio.com" rel="nofollow">Visual Studio Code</a>: an editor that supports syntax highlighting and interactive refactoring for TypeScript doc comments</li>
+<li><a href="https://github.com/TypeStrong/typedoc">TypeDoc</a>: an API reference website generator that extracts its content from doc comments</li>
+<li><a href="https://dotnet.github.io/docfx/" rel="nofollow">DocFX</a>:  a integrated pipeline that ingests API reference content for many different programming languages, but then applies its own Markdown renderer and custom tag parsing</li>
+<li><a href="https://aka.ms/extractor" rel="nofollow">API Extractor</a>: a build tool that tracks TypeScript API review workflows and generates *.d.ts rollups for third-party SDKs</li>
+</ul>
+<p>These are just examples.  Many other tools in today's web developer community want to interact with TypeScript doc comments.  Each of these tools accepts a syntax that is loosely based on <a href="http://usejsdoc.org" rel="nofollow">JSDoc</a>, but encounters frustrating incompatibilities when attempting to coexist with other parsers.</p>
+<p><em>Why can't JSDoc be the standard?</em>  Unfortunately the JSDoc grammar is not rigorously specified, but rather inferred from the behavior of a particular implementation.  The majority of the standard JSDoc tags are preoccupied with providing type annotations for plain JavaScript, which is an irrelevant concern for a strongly-typed language such as TypeScript.  <strong>TSDoc</strong> addresses these limitations while also tackling a more sophisticated set of goals.</p>
+<h3><a id="user-content-what-are-the-goals" class="anchor" aria-hidden="true" href="#what-are-the-goals"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>What are the goals?</h3>
+<p>The TSDoc specification aims to meet these requirements:</p>
+<ul>
+<li><strong>Designed for TypeScript</strong>: ...while aligning as closely as possible with the familiar JSDoc notations we know and love.</li>
+<li><strong>Markdown integration</strong>: Doc comments may incorporate <a href="http://commonmark.org" rel="nofollow">CommonMark</a> notations for rich text elements such as boldface, code fences, headings, tables, etc.  (This is actually the toughest requirement, since the Markdown grammar is highly sensitive to context.) TSDoc makes special accommodations for entrenched pipelines (e.g. GitHub Pages) that expect to bring their own Markdown renderer to the party.</li>
+<li><strong>Common core</strong>: Common  tags such as <code>@param</code> and <code>@returns</code> will have consistent behavior across all tools.</li>
+<li><strong>Extensible</strong>: Each tool can supplement the core tags with custom tags for specialized scenarios.</li>
+<li><strong>Interoperable</strong>: The TSDoc standard guarantees that unsupported custom tags won't interfere with parsing of other content. TSDoc also addresses Markdown ambiguities.  (Are backticks allowed inside a <code>{@link}</code> tag?  What happens if there is only one backtick?)</li>
+<li><strong>Multi-package support</strong>:  Many teams ship a collection of NPM packages that work together and are documented as a set.  The cross-referencing syntax (e.g. <code>{@link}</code> or <code>{@inheritdoc}</code>) needs a portable way to reference API items imported from other packages.  We also define  <em>package.json</em> metadata that enables tooling to detect whether a dependency's *.d.ts doc comments should be parsed as TSDoc or not.</li>
+<li><strong>Open standard</strong>: TSDoc is an open source, community-driven standard.  You are encouraged to contribute your own ideas and pull requests.</li>
+</ul>
+<p>The <strong>@microsoft/tsdoc</strong> library package brings in some additional goals:</p>
+<ul>
+<li><strong>"Strict" and "Lax" modes</strong>: Many projects don’t have the time/desire to change their existing code, so they want a "<em>lax</em>" mode that makes a best attempt to render their doc comments as-is.  Other projects want a "<em>strict</em>" mode that ensures consistent syntax everywhere and catches typos that might result in rendering errors.  Some projects want to be "<em>strict</em>" eventually, but they can't migrate everything overnight; they need a "<em>transitional</em>" mode similar to tslint suppressions.</li>
+<li><strong>Comment-emitter for roundtripping</strong>:  The parser reads doc comments as input and produces an abstract syntax tree (AST) as output.  This should be reversible:  given an AST input (possibly with modifications), the library can regenerate the corresponding doc comment.</li>
+<li><strong>Self-contained</strong>: The implementation will be small, fast, and self-contained.  It will not have a dependency on the TypeScript compiler API.  Doc comments will be received as a plain text string, and the AST will be a simple JavaScript tree object.  This makes it easier for tools to accept <strong>@microsoft/tsdoc</strong> as a dependency.</li>
+</ul>
+<h3><a id="user-content-how-do-i-participate" class="anchor" aria-hidden="true" href="#how-do-i-participate"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>How do I participate?</h3>
+<p>Currently TSDoc is still in the early stages, but we've made a lot of progress.</p>
+<ul>
+<li>We have published a library <a href="https://www.npmjs.com/package/@microsoft/tsdoc" rel="nofollow">@microsoft/tsdoc</a> that provides a reference implementation of a parser for TSDoc syntax.  The source code for this library can be found in the <a href="/Microsoft/tsdoc/blob/master/tsdoc">/tsdoc</a> folder.</li>
+<li>See <a href="/Microsoft/tsdoc/blob/master/Contributing.md">Contributing.md</a> for instructions for building and debugging the library.</li>
+<li>The <a href="/Microsoft/tsdoc/blob/master/api-demo">/api-demo</a> folder has a small demo project illustrating how to invoke the <strong>@microsoft/tsdoc</strong> library.</li>
+<li>We're using <a href="https://github.com/Microsoft/tsdoc/issues">GitHub issues</a> to discuss the TSDoc specification, library design, and project roadmap.</li>
+</ul>
+<p>NOTE: The <strong>@microsoft/tsdoc</strong> library is intended to be incorporated into other build tools that analyze TypeScript source code, such as the ones linked below.  By itself, the library cannot is not a documentation tool.</p>
+<h3><a id="user-content-whos-involved" class="anchor" aria-hidden="true" href="#whos-involved"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Who's involved?</h3>
+<p>The collaborators currently driving the TSDoc standard are:</p>
+<ul>
+<li><a href="http://www.typescriptlang.org" rel="nofollow">TypeScript</a> compiler group at Microsoft</li>
+<li><a href="https://aka.ms/extractor" rel="nofollow">API Extractor</a> project owners</li>
+<li><a href="http://typedoc.org" rel="nofollow">TypeDoc</a> maintainers</li>
+<li><a href="https://dotnet.github.io/docfx/" rel="nofollow">DocFX</a>pipeline owners</li>
+<li><a href="https://simplrjs.com/" rel="nofollow">SimplrJS</a> developers, who maintain the <a href="https://github.com/SimplrJS/ts-docs-gen">ts-docs-gen</a> tool</li>
+<li><a href="https://github.com/tomdale">Tom Dale</a>, who's working on the documentation engine for <a href="https://www.emberjs.com" rel="nofollow">Ember.js</a>, <a href="https://glimmerjs.com" rel="nofollow">Glimmer.js</a>, and other projects</li>
+<li><a href="https://github.com/EisenbergEffect">Rob Eisenberg</a>, who's working on the documentation engine for <a href="http://aurelia.io/" rel="nofollow">Aurelia</a>.</li>
+</ul>
+<h2><a id="user-content-contributing" class="anchor" aria-hidden="true" href="#contributing"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Contributing</h2>
+<p>This project welcomes contributions and suggestions.  Most contributions require you to agree to a
+Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
+the rights to use your contribution. For details, visit <a href="https://cla.microsoft.com" rel="nofollow">https://cla.microsoft.com</a>.</p>
+<p>When you submit a pull request, a CLA-bot will automatically determine whether you need to provide
+a CLA and decorate the PR appropriately (e.g., label, comment). Simply follow the instructions
+provided by the bot. You will only need to do this once across all repos using our CLA.</p>
+<p>This project has adopted the <a href="https://opensource.microsoft.com/codeofconduct/" rel="nofollow">Microsoft Open Source Code of Conduct</a>.
+For more information see the <a href="https://opensource.microsoft.com/codeofconduct/faq/" rel="nofollow">Code of Conduct FAQ</a> or
+contact <a href="mailto:opencode@microsoft.com">opencode@microsoft.com</a> with any additional questions or comments.</p>
+</article>
