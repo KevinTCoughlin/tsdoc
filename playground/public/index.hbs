@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-  {{#each scriptsToInclude}}
-    <script type="text/javascript" src="{{url}}"></script>
-  {{/each}}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="theme-color" content="#000000">
@@ -14,5 +11,8 @@
       You need to enable JavaScript to run this app.
     </noscript>
     <div id="root"></div>
+  {{#each scriptsToInclude}}
+    <script type="text/javascript" src="{{url}}"></script>
+  {{/each}}
   </body>
 </html>
