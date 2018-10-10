@@ -4,6 +4,72 @@ html, body {
   font-family: Tahoma, sans-serif;
 }
 
+/* Begin Kevin */
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.playground-frame {
+  display: flex;
+  flex-direction: column;
+}
+
+.playground-header {
+  display: flex;
+  flex-direction: row;
+  background: rgb(30, 148, 73);
+  color: white;
+  padding: 20px;
+  margin-bottom: 20px;
+  font-size: 26px;
+}
+
+.playground-header a {
+  font-size: 20px;
+}
+
+.playground-content-area {
+  display: flex;
+  flex-direction: column;
+}
+
+.playground-main-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.playground-input-box, .playground-tab-pane {
+  display: flex;
+  flex-grow: 1;
+}
+
+.playground-input-box {
+  flex-direction: column;
+}
+
+.playground-tab-pane {
+  display: flex;
+  flex-direction: column;
+}
+
+.playground-monaco-host {
+  display: flex;
+}
+
+.playground-tab-pane-buttons {
+  display: flex;
+  flex-direction: row;
+}
+
+.playground-monaco-placeholder {
+  display: flex;
+  flex-grow: 1;
+}
+/* End Kevin */
+
 .doc-heading {
   color: #2F5496;
   font-size: 24px;

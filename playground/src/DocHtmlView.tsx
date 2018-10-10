@@ -95,7 +95,7 @@ export class DocHtmlView extends React.Component<IDocHtmlViewProps> {
       );
     }
 
-    return <div style={ this.props.style }> {outputElements} </div>;
+    return <> {outputElements} </>;
   }
 
   private _renderContainer(section: tsdoc.DocNodeContainer): React.ReactNode {

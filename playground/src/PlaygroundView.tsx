@@ -28,7 +28,6 @@ export class PlaygroundView extends React.Component<IPlaygroundViewProps, IPlayg
   private readonly _textAreaStyle: React.CSSProperties = {
     width: '100%',
     height: '100%',
-    boxSizing: 'border-box',
     border: 'none',
     resize: 'none',
     paddingLeft: '8px',
@@ -61,35 +60,35 @@ export class PlaygroundView extends React.Component<IPlaygroundViewProps, IPlayg
   }
 
   public render(): React.ReactNode {
-    const headerStyle: React.CSSProperties = {
-      height: '70px',
-      backgroundColor: '#1e9449',
-      paddingLeft: '20px',
-      paddingRight: '20px',
-      alignItems: 'center',
-      justifyContent: 'space-between',
-      marginBottom: '20px',
-      color: '#ffffff'
-    };
+    // const headerStyle: React.CSSProperties = {
+    //   height: '70px',
+    //   backgroundColor: '#1e9449',
+    //   paddingLeft: '20px',
+    //   paddingRight: '20px',
+    //   alignItems: 'center',
+    //   justifyContent: 'space-between',
+    //   marginBottom: '20px',
+    //   color: '#ffffff'
+    // };
 
-    const mainRowStyle: React.CSSProperties = {
-      alignItems: 'stretch',
-      flex: 1
-    };
+    // const mainRowStyle: React.CSSProperties = {
+    //   alignItems: 'stretch',
+    //   flex: 1
+    // };
 
-    const errorsPaneStyle: React.CSSProperties = {
-      height: '130px',
-      marginTop: '20px'
-    };
+    // const errorsPaneStyle: React.CSSProperties = {
+    //   height: '130px',
+    //   marginTop: '20px'
+    // };
 
-    const footerStyle: React.CSSProperties = {
-      height: '80px',
-      textAlign: 'center',
-      color: '#a0a0a0',
-      alignItems: 'center',
-      justifyContent: 'center',
-      fontSize: 'smaller'
-    };
+    // const footerStyle: React.CSSProperties = {
+    //   height: '80px',
+    //   textAlign: 'center',
+    //   color: '#a0a0a0',
+    //   alignItems: 'center',
+    //   justifyContent: 'center',
+    //   fontSize: 'smaller'
+    // };
 
     const navAnchorStyle: React.CSSProperties = {
       color: '#ffffff',
@@ -97,22 +96,19 @@ export class PlaygroundView extends React.Component<IPlaygroundViewProps, IPlayg
     };
 
     return (
-      <FlexColDiv className='playground-frame' style={ { flex: 1 } }>
-        <FlexRowDiv className='playground-header' style={ headerStyle }>
-          <FlexColDiv style={{ fontWeight: 400, fontSize: '26px' }}>TSDoc Playground</FlexColDiv>
-          <FlexColDiv style={{ fontWeight: 400, fontSize: '20px' }}>
+      <FlexColDiv className='playground-frame'>
+        <FlexRowDiv className='playground-header'>
+          <FlexColDiv>TSDoc Playground</FlexColDiv>
+          <>
             <a style={navAnchorStyle} href='https://github.com/Microsoft/tsdoc' target='_blank'>
               What is TSDoc?</a>
-          </FlexColDiv>
+          </>
         </FlexRowDiv>
 
-        <FlexColDiv className='playground-content-area' style={ { margin: '4px', flex: 1 } }>
-          <FlexRowDiv className='playground-main-row' style={ mainRowStyle }>
+        <FlexColDiv className='playground-content-area'>
+          <FlexRowDiv className='playground-main-row'>
             { this._renderInputBox() }
-
             <TabPane
-              style={ { flex: 1, marginLeft: '4px' } }
-              buttonRowStyle={ { height: '40px', boxSizing: 'border-box'  } }
               tabs={ [
                 { title: 'HTML', render: this._renderHtml.bind(this) },
                 { title: 'DOM', render: this._renderDom.bind(this) },
@@ -121,12 +117,12 @@ export class PlaygroundView extends React.Component<IPlaygroundViewProps, IPlayg
               ] }
             />
           </FlexRowDiv>
-          <FlexColDiv className='playground-errors-pane' style={ errorsPaneStyle }>
+          <FlexColDiv className='playground-errors-pane'>
             { this._renderErrorList() }
           </FlexColDiv>
         </FlexColDiv>
 
-        <FlexRowDiv className='playground-footer' style={ footerStyle }>
+        <FlexRowDiv className='playground-footer'>
           &copy; 2018 Microsoft
         </FlexRowDiv>
       </FlexColDiv>
@@ -171,8 +167,8 @@ export class PlaygroundView extends React.Component<IPlaygroundViewProps, IPlayg
     };
 
     return (
-      <FlexColDiv className='playground-input-box' style={ { flex: 1 } }>
-        <div className='playground-button-bar' style={ { height: '40px', boxSizing: 'border-box' } }>
+      <FlexColDiv className='playground-input-box'>
+        <div className='playground-button-bar'>
           { this._renderSelectSample() }
         </div>
         <CodeEditor
@@ -225,9 +221,10 @@ export class PlaygroundView extends React.Component<IPlaygroundViewProps, IPlayg
     const parserContext: tsdoc.ParserContext | undefined = this.state.parserContext;
     if (parserContext && parserContext.docComment) {
       return (
-        <div style={ { overflow: 'auto', paddingLeft: '8px', paddingRight: '8px', flex: 1 } }>
-          <DocHtmlView docComment={ parserContext.docComment } />
-        </div>
+        // <div style={ { overflow: 'auto', paddingLeft: '8px', paddingRight: '8px', flex: 1 } }>
+        //   <DocHtmlView docComment={ parserContext.docComment } />
+        // </div>
+        <><DocHtmlView docComment={ parserContext.docComment } /></>
       );
     } else {
       return <span />;
@@ -271,7 +268,6 @@ export class PlaygroundView extends React.Component<IPlaygroundViewProps, IPlayg
       borderStyle: 'solid',
       borderWidth: '2px',
       borderColor: '#c0c0c0',
-      flex: 1
     };
 
     return (

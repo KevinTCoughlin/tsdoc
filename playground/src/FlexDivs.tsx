@@ -11,15 +11,15 @@ export class FlexRowDiv extends React.Component<IFlexDivProps>  {
       ...this.props
     };
 
-    if (mergedProps.style === undefined) {
-      mergedProps.style = { };
-    }
-    if (mergedProps.style.display === undefined) {
-      mergedProps.style.display = 'flex';
-    }
-    if (mergedProps.style.flexDirection === undefined) {
-      mergedProps.style.flexDirection = 'row';
-    }
+    // if (mergedProps.style === undefined) {
+    //   mergedProps.style = { };
+    // }
+    // if (mergedProps.style.display === undefined) {
+    //   mergedProps.style.display = 'flex';
+    // }
+    // if (mergedProps.style.flexDirection === undefined) {
+    //   mergedProps.style.flexDirection = 'row';
+    // }
 
     return React.createElement('div', mergedProps);
   }
@@ -33,15 +33,15 @@ export class FlexColDiv extends React.Component<IFlexDivProps>  {
       ...this.props
     };
 
-    if (mergedProps.style === undefined) {
-      mergedProps.style = { };
-    }
-    if (mergedProps.style.display === undefined) {
-      mergedProps.style.display = 'flex';
-    }
-    if (mergedProps.style.flexDirection === undefined) {
-      mergedProps.style.flexDirection = 'column';
-    }
+    // if (mergedProps.style === undefined) {
+    //   mergedProps.style = { };
+    // }
+    // if (mergedProps.style.display === undefined) {
+    //   mergedProps.style.display = 'flex';
+    // }
+    // if (mergedProps.style.flexDirection === undefined) {
+    //   mergedProps.style.flexDirection = 'column';
+    // }
 
     return React.createElement('div', mergedProps);
   }

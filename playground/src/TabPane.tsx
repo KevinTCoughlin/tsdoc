@@ -43,20 +43,21 @@ export class TabPane extends React.Component<ITabPaneProps, ITabPaneState>  {
       if (i === this.state.selectedTabIndex) {
         selectedTabDefinition = tabDefinition;
 
-        const activeTabStyle: React.CSSProperties = {
-          ...style,
-          borderStyle: 'solid',
-          borderWidth: '2px',
-          borderColor: '#c0c0c0',
-          borderBottomStyle: 'none',
-          borderTopLeftRadius: '4px',
-          borderTopRightRadius: '4px'
-        };
+        // const activeTabStyle: React.CSSProperties = {
+        //   ...style,
+        //   borderStyle: 'solid',
+        //   borderWidth: '2px',
+        //   borderColor: '#c0c0c0',
+        //   borderBottomStyle: 'none',
+        //   borderTopLeftRadius: '4px',
+        //   borderTopRightRadius: '4px'
+        // };
 
         buttons.push(
-          <div key={`tab_${i}`} className='playground-tab-pane-active-tab' style={ activeTabStyle }>
-            {tabDefinition.title}
-          </div>
+          <>{tabDefinition.title}</>
+          // <div key={`tab_${i}`} className='playground-tab-pane-active-tab' style={ activeTabStyle }>
+          //   {tabDefinition.title}
+          // </div>
         );
 
       } else {
@@ -74,20 +75,21 @@ export class TabPane extends React.Component<ITabPaneProps, ITabPaneState>  {
       }
     }
 
-    const contentDivStyle: React.CSSProperties = {
-      ...this.props.contentDivStyle,
-      borderStyle: 'solid',
-      borderWidth: '2px',
-      borderColor: '#c0c0c0',
-      flex: 1
-    };
+    // const contentDivStyle: React.CSSProperties = {
+    //   ...this.props.contentDivStyle,
+    //   borderStyle: 'solid',
+    //   borderWidth: '2px',
+    //   borderColor: '#c0c0c0',
+    //   overflowY: 'auto',
+    //   flex: 1
+    // };
 
     return (
-      <FlexColDiv className='playground-tab-pane' style={ this.props.style }>
-        <FlexRowDiv className='playground-tab-pane-buttons' style={ this.props.buttonRowStyle }>
+      <FlexColDiv className='playground-tab-pane'>
+        <FlexRowDiv className='playground-tab-pane-buttons'>
           { buttons }
         </FlexRowDiv>
-        <FlexColDiv className='playground-tab-pane-content' style={ contentDivStyle }>
+        <FlexColDiv className='playground-tab-pane-content'>
           { selectedTabDefinition !== undefined ? selectedTabDefinition.render() : '' }
         </FlexColDiv>
       </FlexColDiv>

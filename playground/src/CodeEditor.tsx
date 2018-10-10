@@ -175,8 +175,7 @@ export class CodeEditor extends React.Component<ICodeEditorProps, ICodeEditorSta
     if (this.state.monacoErrorMessage) {
       return ( // Fall back to a textbox
         <FlexColDiv
-          className={ this.props.className }
-          style={ this.props.style } >
+          className={ this.props.className }>
           { this.state.monacoErrorMessage }
         </FlexColDiv>
         );
@@ -187,12 +186,10 @@ export class CodeEditor extends React.Component<ICodeEditorProps, ICodeEditorSta
       // and manual resizing.
       return (
         <div className='playground-monaco-placeholder'
-          ref={ (element: HTMLDivElement) => { this._placeholderDivRef = element; } }
-          style={ { display: 'flex', flexDirection: 'column', flex: 1, ...this.props.style } }>
+          ref={ (element: HTMLDivElement) => { this._placeholderDivRef = element; } }>
 
           <div className='playground-monaco-host'
-          ref={ (element: HTMLDivElement) => { this._hostDivref = element; this._createEditor(); } }
-          style={ { display: 'block', position: 'absolute', backgroundColor: '#00FF00' } } />
+          ref={ (element: HTMLDivElement) => { this._hostDivref = element; this._createEditor(); } }/>
 
         </div>
       );
