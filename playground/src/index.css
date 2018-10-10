@@ -56,7 +56,8 @@ html {
 }
 
 .playground-monaco-host {
-  display: flex;
+  display: block;
+  position: absolute;
 }
 
 .playground-tab-pane-buttons {
