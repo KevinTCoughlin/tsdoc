@@ -2,7 +2,7 @@ import * as React from 'react';
 
 export interface IFlexDivProps extends React.DetailedHTMLProps<
   React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
-    type: string;
+    type?: string;
 }
 
 export const flexRowDiv: (props: IFlexDivProps) => JSX.Element = (props: IFlexDivProps) => {

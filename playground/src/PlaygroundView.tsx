@@ -101,6 +101,9 @@ export class PlaygroundView extends React.Component<IPlaygroundViewProps, IPlayg
           </FlexColDiv>
         </FlexRowDiv>
 
+<FlexColDiv>
+  <footer>Hey</footer>
+</FlexColDiv>
         <FlexColDiv className='playground-content-area' style={ { margin: '4px', flex: 1 } }>
           <FlexRowDiv className='playground-main-row' style={ mainRowStyle }>
             { this._renderInputBox() }
