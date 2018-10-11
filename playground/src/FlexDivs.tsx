@@ -1,13 +1,13 @@
 import * as React from 'react';
 
-export interface IFlexDivProps extends React.DetailedHTMLProps<
-  React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+export interface IFlexProps extends React.DetailedHTMLProps<
+  React.HTMLAttributes<HTMLElement>, HTMLElement> {
 }
 
-export class FlexRow extends React.Component<IFlexDivProps>  {
+export class FlexRow extends React.Component<IFlexProps>  {
 
   public render(): React.ReactNode {
-    const mergedProps: IFlexDivProps = {
+    const mergedProps: IFlexProps = {
       ...this.props
     };
 
@@ -26,10 +26,10 @@ export class FlexRow extends React.Component<IFlexDivProps>  {
 
 }
 
-export class FlexCol extends React.Component<IFlexDivProps>  {
+export class FlexCol extends React.Component<IFlexProps>  {
 
   public render(): React.ReactNode {
-    const mergedProps: IFlexDivProps = {
+    const mergedProps: IFlexProps = {
       ...this.props
     };
 
