@@ -2,6 +2,7 @@ import * as React from 'react';
 
 export interface IFlexDivProps extends React.DetailedHTMLProps<
   React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+    type: string;
 }
 
 export const flexRowDiv: (props: IFlexDivProps) => JSX.Element = (props: IFlexDivProps) => {
@@ -19,7 +20,10 @@ export const flexRowDiv: (props: IFlexDivProps) => JSX.Element = (props: IFlexDi
     mergedProps.style.flexDirection = 'row';
   }
 
-  return React.createElement('div', mergedProps);
+  // tslint:disable-next-line
+  const { type: TagName = 'div' } = mergedProps;
+
+  return <TagName style={mergedProps.style}>{mergedProps.children}</TagName>;
 };
 
 export const flexColDiv: (props: IFlexDivProps) => JSX.Element = (props: IFlexDivProps) => {
@@ -37,5 +41,8 @@ export const flexColDiv: (props: IFlexDivProps) => JSX.Element = (props: IFlexDi
     mergedProps.style.flexDirection = 'column';
   }
 
-  return React.createElement('div', mergedProps);
+  // tslint:disable-next-line
+  const { type: TagName = 'div' } = mergedProps;
+
+  return <TagName style={mergedProps.style}>{mergedProps.children}</TagName>;
 };
