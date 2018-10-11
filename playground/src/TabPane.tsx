@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { FlexRow, FlexColDiv } from './FlexDivs';
+import { FlexRow, FlexCol } from './FlexDivs';
 
 export interface ITabDefinition {
   title: string;
@@ -88,14 +88,14 @@ export class TabPane extends React.Component<ITabPaneProps, ITabPaneState>  {
     };
 
     return (
-      <FlexColDiv className='playground-tab-pane' style={ tabPaneStyle }>
+      <FlexCol className='playground-tab-pane' style={ tabPaneStyle }>
         <FlexRow className='playground-tab-pane-buttons' style={ this.props.buttonRowStyle }>
           { buttons }
         </FlexRow>
-        <FlexColDiv className='playground-tab-pane-content' style={ contentDivStyle }>
+        <FlexCol className='playground-tab-pane-content' style={ contentDivStyle }>
           { selectedTabDefinition !== undefined ? selectedTabDefinition.render() : '' }
-        </FlexColDiv>
-      </FlexColDiv>
+        </FlexCol>
+      </FlexCol>
     );
   }
 

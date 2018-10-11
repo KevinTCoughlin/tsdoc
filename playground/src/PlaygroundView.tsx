@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as tsdoc from '@microsoft/tsdoc';
 
 import { TabPane } from './TabPane';
-import { FlexRow, FlexColDiv } from './FlexDivs';
+import { FlexRow, FlexCol } from './FlexDivs';
 import { DocHtmlView } from './DocHtmlView';
 import { DocDomView } from './DocDomView';
 import { DocAstView } from './DocAstView';
@@ -104,16 +104,16 @@ export class PlaygroundView extends React.Component<IPlaygroundViewProps, IPlayg
     };
 
     return (
-      <FlexColDiv className='playground-frame' style={ { flex: 1 } }>
+      <FlexCol className='playground-frame' style={ { flex: 1 } }>
         <FlexRow className='playground-header' style={ headerStyle }>
-          <FlexColDiv style={{ fontWeight: 400, fontSize: '26px' }}>TSDoc Playground</FlexColDiv>
-          <FlexColDiv style={{ fontWeight: 400, fontSize: '20px' }}>
+          <FlexCol style={{ fontWeight: 400, fontSize: '26px' }}>TSDoc Playground</FlexCol>
+          <FlexCol style={{ fontWeight: 400, fontSize: '20px' }}>
             <a style={navAnchorStyle} href='https://github.com/Microsoft/tsdoc' target='_blank'>
               What is TSDoc?</a>
-          </FlexColDiv>
+          </FlexCol>
         </FlexRow>
 
-        <FlexColDiv className='playground-content-area' style={ { margin: '4px', flex: 1 } }>
+        <FlexCol className='playground-content-area' style={ { margin: '4px', flex: 1 } }>
           <FlexRow className='playground-main-row' style={ mainRowStyle }>
             { this._renderInputBox() }
 
@@ -128,15 +128,15 @@ export class PlaygroundView extends React.Component<IPlaygroundViewProps, IPlayg
               ] }
             />
           </FlexRow>
-          <FlexColDiv className='playground-errors-pane' style={ errorsPaneStyle }>
+          <FlexCol className='playground-errors-pane' style={ errorsPaneStyle }>
             { this._renderErrorList() }
-          </FlexColDiv>
-        </FlexColDiv>
+          </FlexCol>
+        </FlexCol>
 
         <FlexRow className='playground-footer' style={ footerStyle }>
           &copy; 2018 Microsoft
         </FlexRow>
-      </FlexColDiv>
+      </FlexCol>
     );
   }
 
@@ -182,7 +182,7 @@ export class PlaygroundView extends React.Component<IPlaygroundViewProps, IPlayg
     };
 
     return (
-      <FlexColDiv className='playground-input-box' style={ { flex: 1 } }>
+      <FlexCol className='playground-input-box' style={ { flex: 1 } }>
         <div className='playground-button-bar' style={ { height: '40px', boxSizing: 'border-box' } }>
           { this._renderSelectSample() }
           { this._renderThemeSelector() }
@@ -197,7 +197,7 @@ export class PlaygroundView extends React.Component<IPlaygroundViewProps, IPlayg
           syntaxStyles={ syntaxStyles }
           theme={ this.state.selectedTheme }
          />
-      </FlexColDiv>
+      </FlexCol>
     );
   }
 
@@ -319,7 +319,7 @@ export class PlaygroundView extends React.Component<IPlaygroundViewProps, IPlayg
     return (
       <>
         <label htmlFor='errors'>Errors:</label>
-        <FlexColDiv style={boxStyle}>
+        <FlexCol style={boxStyle}>
           <textarea
             id='errors'
             className='playground-errors-textarea'
@@ -327,7 +327,7 @@ export class PlaygroundView extends React.Component<IPlaygroundViewProps, IPlayg
             value={ errorsText }
             style={ this._textAreaStyle }
           />
-        </FlexColDiv>
+        </FlexCol>
       </>
     );
   }

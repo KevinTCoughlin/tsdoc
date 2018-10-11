@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as monacoEditor from 'monaco-editor';
-import { FlexColDiv } from './FlexDivs';
+import { FlexCol } from './FlexDivs';
 
 export interface ITextRange {
   /**
@@ -185,11 +185,11 @@ export class CodeEditor extends React.Component<ICodeEditorProps, ICodeEditorSta
   public render(): React.ReactNode {
     if (this.state.monacoErrorMessage) {
       return (
-        <FlexColDiv
+        <FlexCol
           className={ this.props.className }
           style={ this.props.style } >
           { this.state.monacoErrorMessage }
-        </FlexColDiv>
+        </FlexCol>
         );
     } else {
       // The Monaco application is very complex and its div does not resize reliably.

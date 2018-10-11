@@ -26,7 +26,7 @@ export class FlexRow extends React.Component<IFlexDivProps>  {
 
 }
 
-export class FlexColDiv extends React.Component<IFlexDivProps>  {
+export class FlexCol extends React.Component<IFlexDivProps>  {
 
   public render(): React.ReactNode {
     const mergedProps: IFlexDivProps = {
