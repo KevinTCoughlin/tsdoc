@@ -6,43 +6,29 @@ export interface IFlexDivProps extends React.DetailedHTMLProps<
 }
 
 export const flexRowDiv: (props: IFlexDivProps) => JSX.Element = (props: IFlexDivProps) => {
-  const mergedProps: IFlexDivProps = {
-    ...props
-  };
-
-  if (mergedProps.style === undefined) {
-    mergedProps.style = { };
-  }
-  if (mergedProps.style.display === undefined) {
-    mergedProps.style.display = 'flex';
-  }
-  if (mergedProps.style.flexDirection === undefined) {
-    mergedProps.style.flexDirection = 'row';
-  }
-
   // tslint:disable-next-line
-  const { type: TagName = 'div' } = mergedProps;
+  const { type: TagName = 'div' } = props;
+  const style: React.CSSProperties  = { display: 'flex', flexDirection: 'row', ...props.style};
 
-  return <TagName style={mergedProps.style}>{mergedProps.children}</TagName>;
+  return (
+    <TagName
+      {...props}
+      style={ style }>
+      {props.children}
+    </TagName>
+  );
 };
 
 export const flexColDiv: (props: IFlexDivProps) => JSX.Element = (props: IFlexDivProps) => {
-  const mergedProps: IFlexDivProps = {
-    ...props
-  };
-
-  if (mergedProps.style === undefined) {
-    mergedProps.style = { };
-  }
-  if (mergedProps.style.display === undefined) {
-    mergedProps.style.display = 'flex';
-  }
-  if (mergedProps.style.flexDirection === undefined) {
-    mergedProps.style.flexDirection = 'column';
-  }
-
   // tslint:disable-next-line
-  const { type: TagName = 'div' } = mergedProps;
+  const { type: TagName = 'div' } = props;
+  const style: React.CSSProperties  = { display: 'flex', flexDirection: 'column', ...props.style};
 
-  return <TagName style={mergedProps.style}>{mergedProps.children}</TagName>;
+  return (
+    <TagName
+      {...props}
+      style={ style }>
+      {props.children}
+    </TagName>
+  );
 };
