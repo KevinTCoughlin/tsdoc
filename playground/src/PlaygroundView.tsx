@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as tsdoc from '@microsoft/tsdoc';
 
 import { TabPane } from './TabPane';
-import { FlexRowDiv, FlexColDiv } from './FlexDivs';
+import { FlexRow, FlexColDiv } from './FlexDivs';
 import { DocHtmlView } from './DocHtmlView';
 import { DocDomView } from './DocDomView';
 import { DocAstView } from './DocAstView';
@@ -105,16 +105,16 @@ export class PlaygroundView extends React.Component<IPlaygroundViewProps, IPlayg
 
     return (
       <FlexColDiv className='playground-frame' style={ { flex: 1 } }>
-        <FlexRowDiv className='playground-header' style={ headerStyle }>
+        <FlexRow className='playground-header' style={ headerStyle }>
           <FlexColDiv style={{ fontWeight: 400, fontSize: '26px' }}>TSDoc Playground</FlexColDiv>
           <FlexColDiv style={{ fontWeight: 400, fontSize: '20px' }}>
             <a style={navAnchorStyle} href='https://github.com/Microsoft/tsdoc' target='_blank'>
               What is TSDoc?</a>
           </FlexColDiv>
-        </FlexRowDiv>
+        </FlexRow>
 
         <FlexColDiv className='playground-content-area' style={ { margin: '4px', flex: 1 } }>
-          <FlexRowDiv className='playground-main-row' style={ mainRowStyle }>
+          <FlexRow className='playground-main-row' style={ mainRowStyle }>
             { this._renderInputBox() }
 
             <TabPane
@@ -127,15 +127,15 @@ export class PlaygroundView extends React.Component<IPlaygroundViewProps, IPlayg
                 { title: 'AST', render: this._renderAst.bind(this) }
               ] }
             />
-          </FlexRowDiv>
+          </FlexRow>
           <FlexColDiv className='playground-errors-pane' style={ errorsPaneStyle }>
             { this._renderErrorList() }
           </FlexColDiv>
         </FlexColDiv>
 
-        <FlexRowDiv className='playground-footer' style={ footerStyle }>
+        <FlexRow className='playground-footer' style={ footerStyle }>
           &copy; 2018 Microsoft
-        </FlexRowDiv>
+        </FlexRow>
       </FlexColDiv>
     );
   }

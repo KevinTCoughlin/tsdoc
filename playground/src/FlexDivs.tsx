@@ -4,7 +4,7 @@ export interface IFlexDivProps extends React.DetailedHTMLProps<
   React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
 }
 
-export class FlexRowDiv extends React.Component<IFlexDivProps>  {
+export class FlexRow extends React.Component<IFlexDivProps>  {
 
   public render(): React.ReactNode {
     const mergedProps: IFlexDivProps = {
