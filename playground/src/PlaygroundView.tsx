@@ -133,7 +133,7 @@ export class PlaygroundView extends React.Component<IPlaygroundViewProps, IPlayg
           </FlexCol>
         </FlexCol>
 
-        <FlexRow className='playground-footer' style={ footerStyle }>
+        <FlexRow type='footer' className='playground-footer' style={ footerStyle }>
           &copy; 2018 Microsoft
         </FlexRow>
       </FlexCol>
