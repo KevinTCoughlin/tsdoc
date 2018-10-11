@@ -2,6 +2,7 @@ import * as React from 'react';
 
 export interface IFlexProps extends React.DetailedHTMLProps<
   React.HTMLAttributes<HTMLElement>, HTMLElement> {
+    type?: string | React.StatelessComponent<IFlexProps> | React.ComponentClass<IFlexProps>;
 }
 
 export class FlexRow extends React.Component<IFlexProps>  {
@@ -21,7 +22,7 @@ export class FlexRow extends React.Component<IFlexProps>  {
       mergedProps.style.flexDirection = 'row';
     }
 
-    return React.createElement('div', mergedProps);
+    return React.createElement(mergedProps.type || 'div', mergedProps);
   }
 
 }
@@ -43,7 +44,7 @@ export class FlexCol extends React.Component<IFlexProps>  {
       mergedProps.style.flexDirection = 'column';
     }
 
-    return React.createElement('div', mergedProps);
+    return React.createElement(mergedProps.type || 'div', mergedProps);
   }
 
 }
