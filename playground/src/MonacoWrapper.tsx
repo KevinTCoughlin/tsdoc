@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as monacoEditor from 'monaco-editor';
-import { FlexColDiv } from './FlexDivs';
+import { flexColDiv as FlexColDiv } from './FlexDivs';
 
 export interface ICommentSyntaxMarker {
   message: string;

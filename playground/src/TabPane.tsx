@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { FlexRowDiv, FlexColDiv } from './FlexDivs';
+import { flexRowDiv as FlexRowDiv, flexColDiv as FlexColDiv } from './FlexDivs';
 
 export interface ITabDefinition {
   title: string;

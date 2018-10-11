@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as tsdoc from '@microsoft/tsdoc';
 
 import { TabPane } from './TabPane';
-import { FlexRowDiv, FlexColDiv } from './FlexDivs';
+import { flexRowDiv as FlexRowDiv, flexColDiv as FlexColDiv } from './FlexDivs';
 import { DocHtmlView } from './DocHtmlView';
 import { DocDomView } from './DocDomView';
 import { DocAstView } from './DocAstView';
