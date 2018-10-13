@@ -47,8 +47,10 @@ export class PlaygroundView extends React.Component<IPlaygroundViewProps, IPlayg
   constructor(props: IPlaygroundViewProps, context?: any) { // tslint:disable-line:no-any
     super(props, context);
 
+    const hashValue: string | undefined = this._getHashValue('src');
+
     this.state = {
-      inputText: SampleInputs.basic,
+      inputText: hashValue ? decodeURIComponent(hashValue) : SampleInputs.basic,
       parserContext: undefined,
       parserFailureText: undefined,
       selectSampleValue: undefined,
@@ -244,7 +246,7 @@ export class PlaygroundView extends React.Component<IPlaygroundViewProps, IPlayg
     const matches: string[] | null = location.hash.match(new RegExp(key + '=([^&]*)'));
     return matches ? matches[1] : undefined;
   }
-  
+
   private _selectSample_onChange(event: React.ChangeEvent<HTMLSelectElement>): void {
     this.setState({
       selectSampleValue: event.target.value
