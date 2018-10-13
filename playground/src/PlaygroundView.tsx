@@ -186,6 +186,7 @@ export class PlaygroundView extends React.Component<IPlaygroundViewProps, IPlayg
         <div className='playground-button-bar' style={ { height: '40px', boxSizing: 'border-box' } }>
           { this._renderSelectSample() }
           { this._renderThemeSelector() }
+          { this._renderShareButton() }
         </div>
         <CodeEditor
           className='playground-input-text-editor'
@@ -229,6 +230,21 @@ export class PlaygroundView extends React.Component<IPlaygroundViewProps, IPlayg
     );
   }
 
+  private _renderShareButton(): React.ReactNode {
+    return (
+      <a
+        title='Share your code sample via URL'
+        href={`#src=${encodeURIComponent(this.state.inputText)}`}>
+        Share
+      </a>
+    );
+  }
+
+  private _getHashValue(key: string): string | undefined {
+    const matches: string[] | null = location.hash.match(new RegExp(key + '=([^&]*)'));
+    return matches ? matches[1] : undefined;
+  }
+  
   private _selectSample_onChange(event: React.ChangeEvent<HTMLSelectElement>): void {
     this.setState({
       selectSampleValue: event.target.value
