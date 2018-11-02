@@ -13,6 +13,7 @@ import {
 } from './CodeEditor';
 import { DocNodeSyntaxStyler } from './SyntaxStyler/DocNodeSyntaxStyler';
 import { SampleInputs } from './samples/SampleInputs';
+import { string } from 'prop-types';
 
 export const enum Theme {
   vs = 'vs'
@@ -241,11 +242,6 @@ export class PlaygroundView extends React.Component<IPlaygroundViewProps, IPlayg
     );
   }
 
-  private _getHashValue(key: string): string | undefined {
-    const matches: string[] | null = location.hash.match(new RegExp(key + '=([^&]*)'));
-    return matches ? matches[1] : undefined;
-  }
-
   private _selectSample_onChange(event: React.ChangeEvent<HTMLSelectElement>): void {
     this.setState({
       selectSampleValue: event.target.value
@@ -349,8 +345,25 @@ export class PlaygroundView extends React.Component<IPlaygroundViewProps, IPlayg
     );
   }
 
+  private _getEncodedSourceString(): string | null {
+    if (window && window.document && window.document.location && window.document.location.hash.length) {
+      const hashFragment = window.document.location.hash.substring(1);
+      const hashParameters = hashFragment.split('&');
+
+      hashParameters.forEach((keyValueString) => {
+        const [key, value] = keyValueString.split('=');
+        
+        if (key === 'src') {
+          return value;
+        }
+      });
+    }
+
+    return null;
+  }
+
   private getInitialInputText(): string {
-    const hashValue: string | undefined = this._getHashValue('src');
+    const hashValue: string | undefined = this._getEncodedSourceString();
 
     if (hashValue) {
       return decodeURIComponent(hashValue);
