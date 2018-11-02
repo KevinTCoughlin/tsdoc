@@ -367,14 +367,9 @@ export class PlaygroundView extends React.Component<IPlaygroundViewProps, IPlayg
     return SampleInputs.basic;
   }
 
-  // Check to see if LocalStorage is available in current browsing context.
-  // Test copied from https://github.com/Modernizr/Modernizr/blob/master/feature-detects/storage/localstorage.js.
   private isLocalStorageSupported(): boolean {
-    const testString: string = 'tsdoc';
     try {
-      localStorage.setItem(testString, testString);
-      localStorage.removeItem(testString);
-      return true;
+      return 'localStorage' in window && window['localStorage'] !== null;
     } catch (e) {
       return false;
     }
